@@ -1,0 +1,138 @@
+<div class="row">
+    <div class="wrapper">
+
+        <div id="spinner"></div>
+
+        <div class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-target="#navbar-main" data-toggle="collapse" type="button">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a ng-click="backtohome()"> HOME </a>
+                    </li>
+                    <li ng-repeat="category in categories">
+                        <a ng-class="isActCat===category.categoryId ? 'active':''" ng-click="getarticlebycategory(category.categoryId, category)">{{category.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="row">
+                <div class="col-lg-2" ng-show="isActCat>0">
+                    <div class="side-bar">
+                        <ul>
+                            <div class="menu">
+                                <li ng-repeat="atname in articlenames">
+                                    <a ng-class="isActArt===atname.id?'active':''" ng-click="setArticle(atname.name)">{{atname.name}}</a>
+                                </li>
+                            </div>
+
+                        </ul>
+                    </div>
+                </div>
+                <div ng-class="isActCat>0 ? 'col-lg-10' : 'col-lg-12'">
+
+                    <!-- Home Page -->
+                    <div ng-show="isActArt==0 && isActCat==0" class="text-center home">
+                        <img src="http://www.pictures88.com/p/welcome/welcome_040.jpg"></img> <br><br>
+                        <p>
+                            Find very simple and easy to understand essay on nature. Bring some creativity in the education of your lovely kids, children and students who are studying in nursery, KG, 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10. Nature is the most important thing for our life and our kids should know about this. So motivate their learning through following nature essay.
+                        </p>
+                        <p>
+                            We live on the most beautiful planet, Earth which has very clean and attractive nature full of greenery. Nature is our best friend which provides us all the resources to live here. It gives us water to drink, pure air to breathe, food to eat, land to stay, animals, plants for our other uses, etc for our betterment. We should fully enjoy the nature without disturbing its ecological balance. We should care our nature, make it peaceful, keep it clean and prevent it from the destruction so that we can enjoy our nature forever. Nature is a most precious gift given by the God to us to enjoy but not to harm.
+                        </p>
+                    </div>
+                    <!-- -->
+                    
+                    <!-- Category Information -->
+                    
+                    <div ng-show="isActCat>0 && isActArt==0">
+                        <h2 style="text-align:center">{{selectedCategory.name}}</h2>
+                        <div ng-bind-html="selectedCategory.description | unsafe">
+                        </div>
+                    </div>
+                    
+                    <!-- -->
+                    
+                    <div ng-show="isActArt>0 && isActCat>0">
+
+                        <div class="article">
+                            <h3 class="text-center">{{selectedarticle.name}}</h3>
+                            <p class="pull-right">
+                                Date : {{selectedarticle.date.substring(0,10)}}
+                            </p>
+                            <br>
+                            <hr>
+                            <div>
+                                Description : <br> {{selectedarticle.description}}
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="intro" ng-bind-html="selectedarticle.content | unsafe">
+                               
+                            </div>
+
+                            <br>
+                            <hr>
+
+            </div>
+
+                        <div class="commnets">
+
+                            <div class="well bs-component col-lg-8">
+
+                                <form class="form-horizontal" ng-submit="postcomment(comment)">
+                                    <fieldset style="border:none">
+                                        <legend>&nbsp; Comment Here</legend>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <div>
+                                                    <input type="text" class="form-control" id="txtuser" required placeholder="Please enter your full name here" ng-model="comment.user">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <input type="email" class="form-control" id="txtemail" required placeholder="Email Address" ng-model="comment.email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <textarea class="form-control" name="content" ng-model="comment.content" required placeholder="type your commnet here"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="submit" name="btnsubmit" class="btn btn-primary" value="{{isEdit==true?'Edit':'Submit'}}" />
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+
+                            </div>
+
+                            <div class="media" style="clear:both">
+                                <div class="media-body col-lg-12" ng-repeat="comnt in commentlist | orderBy:'-date'">
+                                    <h4 class="media-heading">{{comnt.user}}
+                                        <small>{{comnt.date.substring(0,10)}} &nbsp;&nbsp; 
+                            <a class="label label-warning" ng-click="editcomment(comnt)">edit</a>
+                            <a class="label label-danger" ng-click="deletecomment(comnt.commentId)">delete</a></small>
+                                    </h4>
+                                    {{comnt.content}}
+
+                                    <br><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
