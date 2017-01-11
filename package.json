@@ -16,15 +16,8 @@
     "nodeadmin": "^0.1.2",
     "sequelize": "^3.28.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/darpanpathak/mihai-sample.git"
-  },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/darpanpathak/mihai-sample/issues"
-  },
-  "homepage": "https://github.com/darpanpathak/mihai-sample#readme"
 }
