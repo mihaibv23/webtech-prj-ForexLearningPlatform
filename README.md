@@ -1,4 +1,4 @@
---- webtech-prj-ForexLearningPlatform ---
+--- webtech-prj-ForexLearningPlatform --- Botofei Mihai Victor 
 
 Proiectul are ca scop pregatirea pentru tranzactionarea pe piata FOREX celor interesati de acest domeniu. 
 
@@ -15,7 +15,8 @@ Baza de date MySQL administrata cu NodeAdmin
 Express & Sequelize
 HTML, CSS si JavaScript
 
-Entitatile folosite in proiect sunt : Article, Category si Comment. 
+Entitatile folosite in proiect sunt : Article, Category si Comment.
+
 Atributele entitatilor sunt prezente in fisierele article.js, category.js, comment.js din folderul Moldes.
 
 Cu ajutorul lui Sequelize, modelele sunt preluatre si mapate apoi in tabelele corespunzatoare din baza de date. 
@@ -31,5 +32,5 @@ DELETE - pentru comentarii
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-Continutul html de prezentare este regasit in fisirul dashboard.html.
+Continutul html de prezentare este regasit in fisierul dashboard.html.
 
