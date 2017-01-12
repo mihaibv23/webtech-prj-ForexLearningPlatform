@@ -62,7 +62,7 @@
                             $scope.articlelist = response.articles;
                         }
                         else {
-                            window.alert("now articles found for this category");
+                            window.alert("Nu s-a gasit niciun articol pentru aceasta categorie");
                         }
                     },
                     function(reject) {
